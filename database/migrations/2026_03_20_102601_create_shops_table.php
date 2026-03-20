@@ -9,13 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('shops', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  public function up(): void
+{
+    Schema::create('shops', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->string('name');
+        $table->string('slug')->unique();
+        $table->text('description')->nullable();
+        $table->string('address');
+        $table->string('city');
+        $table->string('phone')->nullable();
+        $table->string('logo')->nullable();
+        $table->boolean('is_active')->default(true);
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
