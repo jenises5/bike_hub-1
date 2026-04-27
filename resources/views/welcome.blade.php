@@ -125,6 +125,7 @@
         <a href="#">Shops</a>
         <a href="#">Deals</a>
         <a href="#">About</a>
+        <a href="{{ route('recommendations.index') }}">AI Picks</a>
         <a href="{{ route('login') }}">Log in</a>
         <a href="{{ route('register') }}" class="nav-cta">Get Started</a>
     </div>
